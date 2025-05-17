@@ -115,6 +115,14 @@
       color: var(--muted-color);
       font-size: 0.875rem;
       margin-bottom: 1rem;
+      min-height: 1.2em;
+    }
+
+    .typewriter {
+      border-right: 2px solid var(--primary-color);
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0 auto;
     }
     
 
@@ -330,63 +338,7 @@
     }
     
 
-    .theme-toggle {
-      position: fixed;
-      top: 1.25rem;
-      right: 1.25rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: var(--primary-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-      z-index: 10;
-      opacity: 0;
-      animation: fadeIn 0.3s 0.8s forwards;
-    }
     
-    .theme-toggle:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-    
-    /* Audio button */
-    .audio-btn {
-      position: fixed;
-      bottom: 1.25rem;
-      right: 1.25rem;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: var(--audio-btn-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-      z-index: 10;
-      opacity: 0;
-      animation: fadeIn 0.3s 0.9s forwards;
-    }
-    
-    .audio-btn:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: scale(1.1);
-    }
-    
-    .audio-btn.playing {
-      background-color: rgba(239, 68, 68, 0.2);
-      animation: pulse 2s infinite;
-    }
 
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -416,39 +368,7 @@
   </video>
   
 
-  <button class="theme-toggle" id="themeToggle">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon">
-      <circle cx="12" cy="12" r="5"></circle>
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon" style="display: none;">
-      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-    </svg>
-  </button>
-
-  <!-- Audio button -->
-  <button class="audio-btn" id="audioBtn">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="audio-play-icon">
-      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-    </svg>
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="audio-pause-icon" style="display: none;">
-      <rect x="6" y="4" width="4" height="16"></rect>
-      <rect x="14" y="4" width="4" height="16"></rect>
-    </svg>
-  </button>
-
-  <!-- Hidden audio element -->
-  <audio id="audioPlayer" preload="none">
-    <source src="/assets/ww3.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+  
 
   <div class="card">
     <div class="profile">
@@ -457,7 +377,7 @@
         <div class="status" id="onlineStatus"></div>
       </div>
       <h1 class="name">scarlett</h1>
-      
+      <p class="title typewriter" id="bio"></p>
 
       <div class="social-links">
         <a href="https://discord.gg/wHW4srJcf2" target="_blank" rel="noopener noreferrer" class="discord-link" id="discord-link">
@@ -508,33 +428,7 @@
 
   <script>
 
-    const themeToggle = document.getElementById('themeToggle');
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-
-    function setTheme(isDark) {
-      if (isDark) {
-        document.body.classList.add('dark');
-        document.body.classList.remove('light');
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      } else {
-        document.body.classList.add('light');
-        document.body.classList.remove('dark');
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      }
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
-
-
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme === 'dark');
-
-    themeToggle.addEventListener('click', () => {
-      const isDark = document.body.classList.contains('dark');
-      setTheme(!isDark);
-    });
+    
 
 
     const DISCORD_ID = '1318338354626035712';
@@ -681,45 +575,7 @@
 
 
 
-    const audioBtn = document.getElementById('audioBtn');
-    const audioPlayer = document.getElementById('audioPlayer');
-    const audioPlayIcon = document.querySelector('.audio-play-icon');
-    const audioPauseIcon = document.querySelector('.audio-pause-icon');
-
-
-    audioBtn.addEventListener('click', () => {
-      if (audioPlayer.paused) {
-
-        audioPlayer.play()
-          .then(() => {
-
-            audioPlayIcon.style.display = 'none';
-            audioPauseIcon.style.display = 'block';
-
-            audioBtn.classList.add('playing');
-          })
-          .catch(error => {
-            console.error('Error playing audio:', error);
-          });
-      } else {
-
-        audioPlayer.pause();
-
-        audioPlayIcon.style.display = 'block';
-        audioPauseIcon.style.display = 'none';
-
-        audioBtn.classList.remove('playing');
-      }
-    });
-
-
-    audioPlayer.addEventListener('ended', () => {
-
-      audioPlayIcon.style.display = 'block';
-      audioPauseIcon.style.display = 'none';
-
-      audioBtn.classList.remove('playing');
-    });
+    
 
 
     async function fetchDiscordServerInfo() {
@@ -741,8 +597,42 @@
       }
     }
 
+    const bios = [
+      "developer & designer",
+      "creative mind"
+    ];
+
+    async function typeWriter(element, text, speed = 100) {
+      for (let i = 0; i < text.length; i++) {
+        element.textContent += text.charAt(i);
+        await new Promise(resolve => setTimeout(resolve, speed));
+      }
+    }
+
+    async function deleteText(element, speed = 50) {
+      const text = element.textContent;
+      for (let i = text.length; i > 0; i--) {
+        element.textContent = text.substring(0, i - 1);
+        await new Promise(resolve => setTimeout(resolve, speed));
+      }
+    }
+
+    async function typewriterEffect() {
+      const bioElement = document.getElementById('bio');
+      let currentIndex = 0;
+
+      while (true) {
+        await typeWriter(bioElement, bios[currentIndex]);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        await deleteText(bioElement);
+        await new Promise(resolve => setTimeout(resolve, 500));
+        currentIndex = (currentIndex + 1) % bios.length;
+      }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
       profilePic.src = 'data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"%3e%3crect width="256" height="256" fill="%23334155"/%3e%3ccircle cx="128" cy="96" r="64" fill="%2364748b"/%3e%3ccircle cx="128" cy="256" r="96" fill="%2364748b"/%3e%3c/svg%3e';
+      typewriterEffect();
       
       const videoElement = document.getElementById('bgVideo');
       videoElement.innerHTML = '<source src="bg.mp4" type="video/mp4">';
