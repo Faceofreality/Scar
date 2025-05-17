@@ -362,7 +362,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark">
-  <audio id="bgAudio" autoplay loop>
+  <audio id="bgAudio" loop>
     <source src="ww3.mp3" type="audio/mp3">
   </audio>
 
@@ -632,6 +632,13 @@
         currentIndex = (currentIndex + 1) % bios.length;
       }
     }
+
+    document.addEventListener('click', () => {
+      const audio = document.getElementById('bgAudio');
+      if (audio) {
+        audio.play();
+      }
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       profilePic.src = 'data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256"%3e%3crect width="256" height="256" fill="%23334155"/%3e%3ccircle cx="128" cy="96" r="64" fill="%2364748b"/%3e%3ccircle cx="128" cy="256" r="96" fill="%2364748b"/%3e%3c/svg%3e';
