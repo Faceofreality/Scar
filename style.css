@@ -79,25 +79,17 @@ h1 {
 .bio {
     max-width: 600px;
     margin: 0 auto;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    line-height: 1.6;
-}
-
-.audio-player {
-    margin-top: 3rem;
-}
-
-audio {
-    background: rgba(33, 150, 243, 0.1);
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.07);
     border-radius: 20px;
-    padding: 12px;
-    border: 1px solid rgba(33, 150, 243, 0.2);
-    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    line-height: 1.7;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-audio:hover {
-    background: rgba(33, 150, 243, 0.15);
+.bio:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(33, 150, 243, 0.15);
 }
