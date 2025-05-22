@@ -156,6 +156,31 @@ h1 {
     background: rgba(255, 255, 255, 0.07);
 }
 
+.discord-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #5865F2;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.discord-button:hover {
+    background: #4752C4;
+    transform: translateY(-2px);
+}
+
+#discord-count {
+    background: rgba(0,0,0,0.2);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
 .bio p {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.9);
