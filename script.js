@@ -15,7 +15,6 @@ document.addEventListener('click', () => {
     }
 });
 
-
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         if (isPlaying) {
@@ -28,18 +27,23 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-
 async function fetchDiscordInfo() {
     try {
-        const response = await fetch('https://discord.com/api/v9/invites/CqxhXrYAR2?with_counts=true');
-        const data = await response.json();
-        const memberCount = data.approximate_member_count;
-        document.getElementById('discord-count').textContent = `${memberCount} members`;
+        const [serverResponse, userResponse] = await Promise.all([
+            fetch('https://discord.com/api/v9/invites/CqxhXrYAR2?with_counts=true'),
+            fetch('/api/user/1318338354626035712')
+        ]);
+        
+        const serverData = await serverResponse.json();
+        const userData = await userResponse.json();
+        
+        document.getElementById('discord-count').textContent = `${serverData.approximate_member_count} members • ${userData.tag}`;
     } catch (error) {
         console.error('Failed to fetch Discord info:', error);
     }
 }
 
+fetchDiscordInfo();
 
 const logger = {
     pageView() {
@@ -55,7 +59,6 @@ const logger = {
     }
 };
 
-// Log page view when loaded
 document.addEventListener('DOMContentLoaded', () => {
     logger.pageView();
 });
