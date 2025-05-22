@@ -60,4 +60,7 @@ const logger = {
 // Log page view when loaded
 document.addEventListener('DOMContentLoaded', () => {
     logger.pageView();
+    new cursoreffects.fairyDustCursor({
+        colors: ["#ff0000", "#00ff00", "#0000ff"],
+    });
 });
