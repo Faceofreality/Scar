@@ -1,9 +1,8 @@
-
 const audio = document.getElementById('bgMusic');
 let isPlaying = false;
 
 
-audio.volume = 0.5; 
+audio.volume = 0.4; 
 
 document.addEventListener('click', () => {
     if (!isPlaying) {
@@ -15,6 +14,7 @@ document.addEventListener('click', () => {
         console.log('Background music started');
     }
 });
+
 
 document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
@@ -28,23 +28,18 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+
 async function fetchDiscordInfo() {
     try {
-        const [serverResponse, userResponse] = await Promise.all([
-            fetch('https://discord.com/api/v9/invites/CqxhXrYAR2?with_counts=true'),
-            fetch('https://adssadsadsdsadd.repl.co/api/user/1318338354626035712')
-        ]);
-        
-        const serverData = await serverResponse.json();
-        const userData = await userResponse.json();
-        
-        document.getElementById('discord-count').textContent = `${serverData.approximate_member_count} members • ${userData.tag}`;
+        const response = await fetch('https://discord.com/api/v9/invites/CqxhXrYAR2?with_counts=true');
+        const data = await response.json();
+        const memberCount = data.approximate_member_count;
+        document.getElementById('discord-count').textContent = `${memberCount} members`;
     } catch (error) {
         console.error('Failed to fetch Discord info:', error);
     }
 }
 
-fetchDiscordInfo();
 
 const logger = {
     pageView() {
@@ -59,6 +54,7 @@ const logger = {
         console.log(`Total views: ${views}`);
     }
 };
+
 
 document.addEventListener('DOMContentLoaded', () => {
     logger.pageView();
