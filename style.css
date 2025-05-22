@@ -61,12 +61,23 @@ body {
     margin-bottom: 3rem;
     animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 3rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
     transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.4s ease;
+}
+
+.profile:hover {
+    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .profile-pic {
@@ -99,14 +110,16 @@ body {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #2196f3, #64b5f6, #2196f3);
-    background-size: 200% auto;
+    background: linear-gradient(45deg, #2196f3, #64b5f6, #9c27b0, #2196f3);
+    background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 3s linear infinite;
+    animation: shine 6s ease infinite;
+    text-shadow: 0 0 30px rgba(33, 150, 243, 0.3);
+    letter-spacing: 1px;
 }
 
 @keyframes shine {
@@ -159,16 +172,19 @@ h1 {
 .discord-button {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #5865F2;
+    gap: 12px;
+    background: linear-gradient(45deg, #5865F2, #7289da);
     color: white;
-    padding: 15px 25px;
-    border-radius: 12px;
+    padding: 16px 28px;
+    border-radius: 16px;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 25px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+    box-shadow: 
+        0 4px 15px rgba(88, 101, 242, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    letter-spacing: 0.5px;
 }
 
 .discord-button:hover {
