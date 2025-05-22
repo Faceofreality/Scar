@@ -2,6 +2,7 @@
 const audio = document.getElementById('bgMusic');
 let isPlaying = false;
 
+
 audio.volume = 0.5; 
 
 document.addEventListener('click', () => {
@@ -31,7 +32,7 @@ async function fetchDiscordInfo() {
     try {
         const [serverResponse, userResponse] = await Promise.all([
             fetch('https://discord.com/api/v9/invites/CqxhXrYAR2?with_counts=true'),
-            fetch('/api/user/1318338354626035712')
+            fetch('https://adssadsadsdsadd.repl.co/api/user/1318338354626035712')
         ]);
         
         const serverData = await serverResponse.json();
