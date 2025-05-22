@@ -1,0 +1,103 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #e4e4e4;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85));
+    backdrop-filter: blur(8px);
+}
+
+.profile {
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid #2196f3;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(33, 150, 243, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #2196f3, #64b5f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bio {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    line-height: 1.6;
+}
+
+.audio-player {
+    margin-top: 3rem;
+}
+
+audio {
+    background: rgba(33, 150, 243, 0.1);
+    border-radius: 20px;
+    padding: 12px;
+    border: 1px solid rgba(33, 150, 243, 0.2);
+    transition: all 0.3s ease;
+}
+
+audio:hover {
+    background: rgba(33, 150, 243, 0.15);
+}
