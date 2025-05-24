@@ -5,14 +5,13 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #e4e4e4;
+    font-family: 'Outfit', sans-serif;
+    color: #fff;
     overflow: hidden;
     background: #0a0a0a;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+    height: 100vh;
 }
 
 .video-background {
@@ -31,6 +30,15 @@ body {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
+    filter: brightness(0.4) contrast(1.4) saturate(1.3) hue-rotate(-10deg);
+    transform-origin: center;
+    animation: subtle-zoom 30s ease-in-out infinite;
+}
+
+@keyframes subtle-zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
 }
 
 .content {
@@ -41,126 +49,125 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, 
-        rgba(0, 0, 0, 0.9),
-        rgba(33, 150, 243, 0.15),
-        rgba(147, 51, 234, 0.15),
-        rgba(0, 0, 0, 0.9));
-    background-size: 400% 400%;
-    animation: gradientBG 20s ease infinite;
-    backdrop-filter: blur(15px);
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(33, 150, 243, 0.05) 50%,
+        rgba(147, 51, 234, 0.05) 75%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    backdrop-filter: blur(10px);
 }
 
 .profile {
-    margin-bottom: 3rem;
-    animation: floatAnimation 6s ease-in-out infinite;
-    padding: 3.5rem;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 30px;
-    backdrop-filter: blur(25px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 4rem;
+    animation: floatAnimation 8s ease-in-out infinite;
+    padding: 4.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 60px;
+    backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.4),
-        inset 0 0 30px rgba(255, 255, 255, 0.05);
-    transform: perspective(1000px) rotateX(5deg);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 40px rgba(255, 255, 255, 0.02),
+        0 0 100px rgba(147, 51, 234, 0.2);
+    transform: perspective(1000px) rotateX(10deg);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes floatAnimation {
-    0%, 100% { transform: translateY(0) perspective(1000px) rotateX(5deg); }
-    50% { transform: translateY(-20px) perspective(1000px) rotateX(2deg); }
+    0%, 100% { transform: translateY(0) perspective(1000px) rotateX(10deg); }
+    50% { transform: translateY(-30px) perspective(1000px) rotateX(5deg); }
 }
 
 .profile:hover {
-    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    transform: perspective(1000px) rotateX(5deg) translateY(-10px) scale(1.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
     box-shadow: 
-        0 20px 45px rgba(0, 0, 0, 0.4),
-        inset 0 0 30px rgba(255, 255, 255, 0.15);
+        0 40px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 50px rgba(255, 255, 255, 0.05),
+        0 0 120px rgba(147, 51, 234, 0.4);
 }
 
 .profile-pic {
-    width: 200px;
-    height: 200px;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    border: 4px solid rgba(33, 150, 243, 0.8);
-    margin-bottom: 2rem;
+    width: 250px;
+    height: 250px;
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+    border: 4px solid rgba(147, 51, 234, 0.6);
+    margin-bottom: 2.5rem;
     object-fit: cover;
     box-shadow: 
-        0 0 40px rgba(33, 150, 243, 0.4),
-        inset 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: morphShape 8s ease-in-out infinite;
+        0 0 70px rgba(147, 51, 234, 0.5),
+        inset 0 0 30px rgba(255, 255, 255, 0.1),
+        0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: morphShape 15s ease-in-out infinite;
 }
 
 @keyframes morphShape {
-    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-    50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    0% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+    25% { border-radius: 45% 55% 52% 48% / 45% 45% 55% 55%; }
+    50% { border-radius: 60% 40% 31% 69% / 60% 58% 42% 40%; }
+    75% { border-radius: 35% 65% 65% 35% / 35% 50% 50% 65%; }
+    100% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
 }
 
 .profile-pic:hover {
-    transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    transform: scale(1.08) rotate(5deg);
+    border-color: rgba(33, 150, 243, 0.8);
+    box-shadow: 
+        0 0 90px rgba(33, 150, 243, 0.7),
+        inset 0 0 40px rgba(255, 255, 255, 0.2),
+        0 20px 35px rgba(0, 0, 0, 0.5);
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 5rem;
+    margin-bottom: 0.8rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #2196f3, #64b5f6, #9c27b0, #2196f3);
-    background-size: 300% auto;
+    background: linear-gradient(45deg, #9333EA, #2196f3, #64b5f6, #9333EA);
+    background-size: 400% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 6s ease infinite;
-    text-shadow: 0 0 30px rgba(33, 150, 243, 0.3);
-    letter-spacing: 1px;
+    animation: shine 10s linear infinite;
+    letter-spacing: 3px;
+    text-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
 }
 
 @keyframes shine {
-    to {
-        background-position: 200% center;
-    }
+    to { background-position: 400% center; }
 }
 
 .profile p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 .bio {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 3.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 35px;
-    backdrop-filter: blur(25px);
-    line-height: 2;
+    padding: 4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 45px;
+    backdrop-filter: blur(30px);
+    line-height: 2.2;
     box-shadow: 
-        0 25px 45px rgba(0, 0, 0, 0.35),
-        inset 0 2px 0 rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(255, 255, 255, 0.08);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: slideUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    transform: perspective(1000px) rotateX(-3deg);
+        0 35px 55px rgba(0, 0, 0, 0.3),
+        inset 0 3px 0 rgba(255, 255, 255, 0.02),
+        0 0 80px rgba(147, 51, 234, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(60px);
     }
     to {
         opacity: 1;
@@ -169,56 +176,82 @@ h1 {
 }
 
 .bio:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 48px rgba(33, 150, 243, 0.2);
-    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 40px 80px rgba(147, 51, 234, 0.3),
+        inset 0 3px 0 rgba(255, 255, 255, 0.05),
+        0 0 100px rgba(147, 51, 234, 0.25);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .discord-button {
     display: flex;
     align-items: center;
-    gap: 14px;
-    background: linear-gradient(135deg, #5865F2, #7289da, #5865F2);
-    background-size: 200% auto;
+    gap: 20px;
+    background: linear-gradient(135deg, #9333EA, #2196f3);
+    background-size: 300% auto;
     color: white;
-    padding: 18px 32px;
-    border-radius: 20px;
+    padding: 22px 40px;
+    border-radius: 35px;
     text-decoration: none;
-    margin-top: 30px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 40px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
     box-shadow: 
-        0 8px 25px rgba(88, 101, 242, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-    letter-spacing: 0.8px;
-    animation: gradientMove 3s linear infinite;
+        0 20px 40px rgba(147, 51, 234, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 0 50px rgba(147, 51, 234, 0.25);
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes gradientMove {
-    to { background-position: 200% center; }
+.discord-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+.discord-button:hover::before {
+    left: 100%;
 }
 
 .discord-button:hover {
-    background: #4752C4;
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.6);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 
+        0 25px 50px rgba(147, 51, 234, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(147, 51, 234, 0.35);
+    background-position: right center;
 }
 
 .discord-button:active {
-    transform: translateY(0) scale(0.98);
+    transform: translateY(-2px) scale(0.98);
 }
 
 #discord-count {
-    background: rgba(0,0,0,0.2);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 0.95em;
+    backdrop-filter: blur(8px);
+    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .bio p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 300;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    line-height: 2;
 }
-
-
