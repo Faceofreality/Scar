@@ -58,4 +58,23 @@ const logger = {
 
 document.addEventListener('DOMContentLoaded', () => {
     logger.pageView();
+    
+    // Popup functionality
+    const projectsBtn = document.getElementById('projectsBtn');
+    const popupOverlay = document.getElementById('popupOverlay');
+    const closeBtn = document.getElementById('closeBtn');
+    
+    projectsBtn.addEventListener('click', () => {
+        popupOverlay.classList.add('active');
+    });
+    
+    closeBtn.addEventListener('click', () => {
+        popupOverlay.classList.remove('active');
+    });
+    
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.remove('active');
+        }
+    });
 });
