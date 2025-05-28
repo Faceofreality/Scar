@@ -59,7 +59,7 @@ const logger = {
 document.addEventListener('DOMContentLoaded', () => {
     logger.pageView();
     
-    // Popup functionality
+
     const projectsBtn = document.getElementById('projectsBtn');
     const popupOverlay = document.getElementById('popupOverlay');
     const closeBtn = document.getElementById('closeBtn');
