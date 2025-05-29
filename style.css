@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -31,14 +30,14 @@ body {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    filter: brightness(0.4) contrast(1.4) saturate(1.3) hue-rotate(-10deg);
+    filter: brightness(0.3) contrast(1.2) saturate(1.1);
     transform-origin: center;
-    animation: subtle-zoom 30s ease-in-out infinite;
+    animation: subtle-zoom 40s ease-in-out infinite;
 }
 
 @keyframes subtle-zoom {
     0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
+    50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
 
@@ -53,126 +52,118 @@ body {
     background: radial-gradient(
         circle at center,
         rgba(0, 0, 0, 0.2) 0%,
-        rgba(33, 150, 243, 0.05) 50%,
-        rgba(147, 51, 234, 0.05) 75%,
-        rgba(0, 0, 0, 0.4) 100%
+        rgba(33, 150, 243, 0.03) 50%,
+        rgba(147, 51, 234, 0.03) 75%,
+        rgba(0, 0, 0, 0.3) 100%
     );
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     padding: 2rem;
 }
 
 .profile {
     margin-bottom: 4rem;
-    animation: floatAnimation 8s ease-in-out infinite;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 60px;
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: floatAnimation 12s ease-in-out infinite;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 40px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.5),
-        inset 0 0 40px rgba(255, 255, 255, 0.02),
-        0 0 100px rgba(147, 51, 234, 0.2);
-    transform: perspective(1000px) rotateX(10deg);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 0 30px rgba(255, 255, 255, 0.01);
+    transform: perspective(1000px) rotateX(5deg);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
     width: 100%;
     max-width: 500px;
 }
 
 @keyframes floatAnimation {
-    0%, 100% { transform: translateY(0) perspective(1000px) rotateX(10deg); }
-    50% { transform: translateY(-30px) perspective(1000px) rotateX(5deg); }
+    0%, 100% { transform: translateY(0) perspective(1000px) rotateX(5deg); }
+    50% { transform: translateY(-20px) perspective(1000px) rotateX(3deg); }
 }
 
 .profile:hover {
-    transform: perspective(1000px) rotateX(5deg) translateY(-10px) scale(1.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.05);
+    transform: perspective(1000px) rotateX(2deg) translateY(-5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.03);
     box-shadow: 
-        0 40px 80px rgba(0, 0, 0, 0.6),
-        inset 0 0 50px rgba(255, 255, 255, 0.05),
-        0 0 120px rgba(147, 51, 234, 0.4);
+        0 25px 45px rgba(0, 0, 0, 0.4),
+        inset 0 0 40px rgba(255, 255, 255, 0.02);
 }
 
 .profile-pic {
-    width: min(250px, 60vw);
-    height: min(250px, 60vw);
-    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-    border: 4px solid rgba(147, 51, 234, 0.6);
-    margin-bottom: 2.5rem;
+    width: min(220px, 55vw);
+    height: min(220px, 55vw);
+    border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;
+    border: 3px solid rgba(147, 51, 234, 0.4);
+    margin-bottom: 2rem;
     object-fit: cover;
     box-shadow: 
-        0 0 70px rgba(147, 51, 234, 0.5),
-        inset 0 0 30px rgba(255, 255, 255, 0.1),
-        0 15px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: morphShape 15s ease-in-out infinite;
+        0 0 50px rgba(147, 51, 234, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: morphShape 20s ease-in-out infinite;
 }
 
 @keyframes morphShape {
-    0% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
-    25% { border-radius: 45% 55% 52% 48% / 45% 45% 55% 55%; }
-    50% { border-radius: 60% 40% 31% 69% / 60% 58% 42% 40%; }
-    75% { border-radius: 35% 65% 65% 35% / 35% 50% 50% 65%; }
-    100% { border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%; }
+    0% { border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%; }
+    33% { border-radius: 45% 55% 50% 50% / 45% 45% 55% 55%; }
+    66% { border-radius: 50% 50% 45% 55% / 50% 45% 55% 45%; }
+    100% { border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%; }
 }
 
 .profile-pic:hover {
-    transform: scale(1.08) rotate(5deg);
-    border-color: rgba(33, 150, 243, 0.8);
+    transform: scale(1.05) rotate(3deg);
+    border-color: rgba(33, 150, 243, 0.6);
     box-shadow: 
-        0 0 90px rgba(33, 150, 243, 0.7),
-        inset 0 0 40px rgba(255, 255, 255, 0.2),
-        0 20px 35px rgba(0, 0, 0, 0.5);
+        0 0 60px rgba(33, 150, 243, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 h1 {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
     margin-bottom: 0.8rem;
     font-weight: 700;
-    background: linear-gradient(45deg, #9333EA, #2196f3, #64b5f6, #9333EA);
-    background-size: 400% auto;
+    background: linear-gradient(45deg, #9333EA, #2196f3, #64b5f6);
+    background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 10s linear infinite;
-    letter-spacing: 3px;
-    text-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    animation: shine 8s linear infinite;
+    letter-spacing: 2px;
 }
 
 @keyframes shine {
-    to { background-position: 400% center; }
+    to { background-position: 300% center; }
 }
 
 .profile p {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 300;
-    letter-spacing: 2px;
-    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1.5px;
 }
 
 .bio {
-    max-width: 700px;
+    max-width: 650px;
     width: 100%;
     margin: 0 auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 45px;
-    backdrop-filter: blur(30px);
-    line-height: 2.2;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 35px;
+    backdrop-filter: blur(20px);
+    line-height: 1.8;
     box-shadow: 
-        0 35px 55px rgba(0, 0, 0, 0.3),
-        inset 0 3px 0 rgba(255, 255, 255, 0.02),
-        0 0 80px rgba(147, 51, 234, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: slideUp 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        0 25px 45px rgba(0, 0, 0, 0.2),
+        inset 0 2px 0 rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: slideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(60px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -181,312 +172,57 @@ h1 {
 }
 
 .bio:hover {
-    transform: translateY(-12px) scale(1.02);
+    transform: translateY(-8px);
     box-shadow: 
-        0 40px 80px rgba(147, 51, 234, 0.3),
-        inset 0 3px 0 rgba(255, 255, 255, 0.05),
-        0 0 100px rgba(147, 51, 234, 0.25);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.discord-button {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: linear-gradient(135deg, #9333EA, #2196f3);
-    background-size: 300% auto;
-    color: white;
-    padding: 22px 40px;
-    border-radius: 35px;
-    text-decoration: none;
-    margin-top: 40px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 600;
-    box-shadow: 
-        0 20px 40px rgba(147, 51, 234, 0.4),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 0 50px rgba(147, 51, 234, 0.25);
-    letter-spacing: 1.5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.discord-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transition: 0.6s;
-}
-
-.discord-button:hover::before {
-    left: 100%;
-}
-
-.discord-button:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 
-        0 25px 50px rgba(147, 51, 234, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        0 0 60px rgba(147, 51, 234, 0.35);
-    background-position: right center;
-}
-
-.discord-button:active {
-    transform: translateY(-2px) scale(0.98);
-}
-
-#discord-count {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 16px;
-    border-radius: 25px;
-    font-size: 0.95em;
-    backdrop-filter: blur(8px);
-    box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
-}
-
-.bio p {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 300;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    line-height: 2;
-}
-
-.projects {
-    max-width: 700px;
-    margin: 3rem auto 0;
-    padding: 4rem;
+        0 30px 50px rgba(0, 0, 0, 0.25),
+        inset 0 2px 0 rgba(255, 255, 255, 0.02);
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 45px;
-    backdrop-filter: blur(30px);
-    box-shadow: 
-        0 35px 55px rgba(0, 0, 0, 0.3),
-        inset 0 3px 0 rgba(255, 255, 255, 0.02),
-        0 0 80px rgba(147, 51, 234, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: slideUp 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    text-align: center;
 }
 
-.projects:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 
-        0 40px 80px rgba(147, 51, 234, 0.3),
-        inset 0 3px 0 rgba(255, 255, 255, 0.05),
-        0 0 100px rgba(147, 51, 234, 0.25);
-    background: rgba(255, 255, 255, 0.06);
-}
-
-.projects h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
-    font-weight: 600;
-    background: linear-gradient(45deg, #9333EA, #2196f3, #64b5f6, #9333EA);
-    background-size: 400% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shine 10s linear infinite;
-    letter-spacing: 2px;
-    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.project-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-
-.project-button {
+.discord-button, .projects-button {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: linear-gradient(135deg, #2196f3, #9333EA);
-    background-size: 300% auto;
+    background: linear-gradient(135deg, #9333EA, #2196f3);
+    background-size: 200% auto;
     color: white;
     padding: 18px 35px;
     border-radius: 30px;
     text-decoration: none;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 
-        0 15px 35px rgba(33, 150, 243, 0.4),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 0 40px rgba(33, 150, 243, 0.25);
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 300px;
-    justify-content: center;
-}
-
-.project-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-    transition: 0.6s;
-}
-
-.project-button:hover::before {
-    left: 100%;
-}
-
-.project-button:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 
-        0 20px 40px rgba(33, 150, 243, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        0 0 50px rgba(33, 150, 243, 0.35);
-    background-position: right center;
-}
-
-.project-button:active {
-    transform: translateY(-1px) scale(0.98);
-}
-
-.project-button svg {
-    flex-shrink: 0;
-}
-
-.projects-button {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: linear-gradient(135deg, #9333EA, #2196f3);
-    background-size: 300% auto;
-    color: white;
-    padding: 22px 40px;
-    border-radius: 35px;
-    text-decoration: none;
     margin-top: 30px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     font-weight: 600;
-    box-shadow: 
-        0 20px 40px rgba(147, 51, 234, 0.4),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        0 0 50px rgba(147, 51, 234, 0.25);
-    letter-spacing: 1.5px;
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(147, 51, 234, 0.2);
+    letter-spacing: 1px;
     border: none;
     cursor: pointer;
     font-size: 1rem;
     font-family: 'Outfit', sans-serif;
 }
 
-.projects-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    transition: 0.6s;
-}
-
-.projects-button:hover::before {
-    left: 100%;
-}
-
-.projects-button:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 
-        0 25px 50px rgba(147, 51, 234, 0.5),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        0 0 60px rgba(147, 51, 234, 0.35);
+.discord-button:hover, .projects-button:hover {
+    transform: translateY(-4px);
     background-position: right center;
+    box-shadow: 0 20px 35px rgba(147, 51, 234, 0.3);
 }
 
-.projects-button:active {
-    transform: translateY(-2px) scale(0.98);
+.discord-button:active, .projects-button:active {
+    transform: translateY(-2px);
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .content {
-        padding: 1rem;
-    }
-    
-    .profile {
-        padding: 1.5rem;
-        margin-bottom: 2rem;
-    }
-    
-    .bio {
-        padding: 1.5rem;
-    }
-    
-    .profile p {
-        font-size: 1.2rem;
-    }
-    
-    .bio p {
-        font-size: 1.1rem;
-    }
-    
-    .discord-button,
-    .projects-button {
-        padding: 18px 30px;
-        font-size: 0.9rem;
-        gap: 15px;
-    }
-    
-    .popup-content {
-        padding: 30px 20px;
-        margin: 20px;
-    }
+#discord-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    backdrop-filter: blur(5px);
 }
 
-@media (max-width: 480px) {
-    .profile {
-        padding: 1rem;
-    }
-    
-    .bio {
-        padding: 1rem;
-    }
-    
-    .discord-button,
-    .projects-button {
-        padding: 15px 25px;
-        font-size: 0.85rem;
-        gap: 12px;
-    }
-    
-    .popup-content {
-        padding: 20px 15px;
-    }
-    
-    .popup-header h2 {
-        font-size: 1.5rem;
-    }
+.bio p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    line-height: 1.8;
 }
 
 .popup-overlay {
@@ -495,15 +231,15 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .popup-overlay.active {
@@ -512,18 +248,16 @@ h1 {
 }
 
 .popup-content {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
     border-radius: 25px;
-    padding: 40px;
-    max-width: 500px;
+    padding: 35px;
+    max-width: 450px;
     width: 90%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
-        0 30px 60px rgba(0, 0, 0, 0.5),
-        inset 0 0 40px rgba(255, 255, 255, 0.05);
-    transform: scale(0.8);
-    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .popup-overlay.active .popup-content {
@@ -534,18 +268,18 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .popup-header h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    background: linear-gradient(45deg, #9333EA, #2196f3, #64b5f6, #9333EA);
-    background-size: 400% auto;
+    background: linear-gradient(45deg, #9333EA, #2196f3);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shine 10s linear infinite;
-    letter-spacing: 2px;
+    animation: shine 8s linear infinite;
+    letter-spacing: 1px;
     margin: 0;
 }
 
@@ -553,14 +287,92 @@ h1 {
     background: none;
     border: none;
     color: white;
-    font-size: 30px;
+    font-size: 28px;
     cursor: pointer;
     transition: all 0.3s ease;
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-btn:hover {
     background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.1);
+    transform: rotate(90deg);
+}
+
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding: 16px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+}
+
+.project-button:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1.5rem;
+    }
+    
+    .profile {
+        padding: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .bio {
+        padding: 2rem;
+    }
+    
+    .discord-button,
+    .projects-button {
+        padding: 16px 28px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile {
+        padding: 1.5rem;
+    }
+    
+    .bio {
+        padding: 1.5rem;
+    }
+    
+    .discord-button,
+    .projects-button {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .popup-content {
+        padding: 25px 20px;
+    }
+    
+    .popup-header h2 {
+        font-size: 1.5rem;
+    }
 }
