@@ -123,9 +123,9 @@ class Portfolio {
         if (!typewriter) return;
 
         const roles = [
-            'Fucked',
-            '15 year old',
-            'Discord: ckc3',
+            'Yaxis',
+            'Dnd',
+            'Discord: ckc4',
             'Web Designer',
             'Christ',
             'God is the only way'
