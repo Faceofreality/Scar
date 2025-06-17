@@ -4,173 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scarlett</title>
-    <meta name="theme-color" content="#00ff88">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <title>Scarlett - Bio</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
-    <video id="background-video" autoplay muted loop>
-        <source src="assets/background.mp4" type="video/mp4">
-    </video>
-    
-
-    <div id="three-container"></div>
-    
-
-    <div class="glitch-overlay"></div>
-    
-
-    <div class="hud-container">
-    </div>
-
-
-    <div class="cyber-container">
-
-        <nav class="cyber-nav">
-            <div class="nav-item active" data-section="home">
-                <span class="nav-icon">◉</span>
-                <span class="nav-text">HOME</span>
-            </div>
-            <div class="nav-item" data-section="about">
-                <span class="nav-icon">◈</span>
-                <span class="nav-text">ABOUT</span>
-            </div>
-            <div class="nav-item" data-section="projects">
-                <span class="nav-icon">◇</span>
-                <span class="nav-text">PROJECTS</span>
-            </div>
-        </nav>
-
-
-        <section id="home" class="section active">
-            <div class="hologram-container">
-                <div class="profile-hologram">
-                    <div class="hologram-frame">
-                        <img src="assets/profile.png" alt="Scarlett" class="profile-image">
-                    </div>
-                </div>
-                
-                <div class="identity-panel">
-                    <h1 class="cyber-title blue-pink-name">
-                        SCARLETT
-                    </h1>
-                    <div class="role-display">
-                        <span class="role-prefix">&gt; </span>
-                        <span class="typewriter" id="roleTypewriter"></span>
-                        <span class="cursor-blink">█</span>
-                    </div>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">PROJECTS</span>
-                            <span class="stat-value">12</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">USERS</span>
-                            <span class="stat-value">40K</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">UPTIME</span>
-                            <span class="stat-value">99.9%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="about" class="section">
-            <div class="terminal-window draggable" id="terminal">
-                <div class="terminal-header">
-                    <div class="terminal-controls">
-                        <span class="terminal-button close"></span>
-                        <span class="terminal-button minimize"></span>
-                        <span class="terminal-button maximize"></span>
-                    </div>
-                    <span class="terminal-title">scarlett@home:~$</span>
-                </div>
-                <div class="terminal-content">
-                    <div class="terminal-line">
-                        <span class="prompt">scarlett@home:~$</span>
-                        <span class="command">about.txt</span>
-                    </div>
-                    <div class="terminal-output">
-                        <p>◉ Working on projects for anyone <3</p>
-                        <p>◉ Full developer with 5+ years</p>
-                        <p>◉ Specialized in js, py, c#, html, css. and way more</p>
-                        <p>◉ Working on multi.net</p>
-                        <p>◉ Call me once dead</p>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="prompt">scarlett@home:~$</span>
-                        <span class="cursor-blink">█</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <section id="projects" class="section">
-            <div class="projects-grid">
-                <div class="project-card" data-project="ordo">
-                    <div class="project-header">
-                        <h3>ORDO BOT</h3>
-                        <span class="project-status active">ACTIVE</span>
-                    </div>
-                    <div class="project-preview">
-                        <div class="code-preview">
-                            <span class="code-line">const bot = new DiscordClient();</span>
-                            <span class="code-line">bot.commands.register(ordoAI);</span>
-                            <span class="code-line">// 1k+ users</span>
-                        </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://discord.gg/dTCkwDRqgh" class="cyber-btn primary">ACCESS</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="axiom">
-                    <div class="project-header">
-                        <h3>MULTI.NET</h3>
-                        <span class="project-status active">ACTIVE</span>
-                    </div>
-                    <div class="project-preview">
-                        <div class="code-preview">
-                            <span class="code-line">40+ k:</span>
-                            <span class="code-line">.gg/holyspirit</span>
-                            <span class="code-line">free accounts</span>
-                        </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://discord.gg/DKk74FwcJU" class="cyber-btn primary">ACCESS</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-project="multinet">
-                    <div class="project-header">
-                        <h3>AXIOM</h3>
-                        <span class="project-status active">ACTIVE</span>
-                    </div>
-                    <div class="project-preview">
-                        <div class="code-preview">
-                            <span class="code-line">Old discord bot</span>
-                            <span class="code-line">never worked on anymore</span>
-                            <span class="code-line">Project is forevery gone go to ordo</span>
-                        </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="#" class="cyber-btn primary">ACCESS</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+  <div class="current-account">
+        <div class="account-info">
+            <span class="account-label">Current Account:</span>
+            <span class="username">ckc8</span>
         </div>
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <div class="profile-pic">
+                <img src="pfp.png" alt="Scarlett" id="profileImage">
+            </div>
+            <h1 class="name">Scarlett</h1>
+            <div class="bio-text">
+                <span id="typewriter"></span>
+                <span class="cursor">|</span>
+            </div>
+        </div>
+        
 
+      <audio id="backgroundAudio" loop>
+            <source src="assets/sound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
