@@ -4,36 +4,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scarlett - Bio</title>
+    <title>Scarlett - Portfolio</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="noise-overlay"></div>
+    
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">SCARLETT</span>
+        </div>
+        <div class="nav-menu">
+            <a href="#about" class="nav-link">About</a>
+        </div>
+        <div class="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
 
-  <div class="current-account">
+    <div class="current-account">
         <div class="account-info">
-            <span class="account-label">Current Account:</span>
+            <div class="status-indicator"></div>
             <span class="username">ckc8</span>
         </div>
     </div>
     
-    <div class="container">
-        <div class="content">
-            <div class="profile-pic">
-                <img src="pfp.png" alt="Scarlett" id="profileImage">
+    <main class="hero-section">
+        <div class="hero-content">
+            <div class="profile-container">
+                <div class="profile-pic">
+                    <img src="pfp.png" alt="Scarlett" id="profileImage">
+                    <div class="profile-ring"></div>
+                </div>
+                <div class="status-badge">Available</div>
             </div>
-            <h1 class="name">Scarlett</h1>
-            <div class="bio-text">
-                <span id="typewriter"></span>
-                <span class="cursor">|</span>
+            
+            <div class="intro-text">
+                <h1 class="hero-title">
+                    <span class="greeting">Hello, I'm</span>
+                    <span class="name-highlight">Scarlett</span>
+                </h1>
+                
+                <div class="bio-container">
+                    <p class="bio-subtitle">Slit no more</p>
+                    <div class="typewriter-container">
+                        <span id="typewriter"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <span>View Work</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </button>
+                </div>
             </div>
         </div>
         
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </main>
 
-      <audio id="backgroundAudio" loop>
-            <source src="assets/sound.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+    <div class="floating-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
     </div>
+
+    <audio id="backgroundAudio" loop>
+        <source src="assets/sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     
     <script src="script.js"></script>
 </body>

@@ -1,92 +1,273 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: #111111;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --shadow-primary: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    --gradient-secondary: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Courier New', monospace;
-    overflow: hidden;
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: url('assets/bg.gif') center center no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--primary-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
     position: relative;
-    min-height: 100vh;
 }
 
-body::before {
-    content: '';
-    position: absolute;
+.noise-overlay {
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+    pointer-events: none;
     z-index: 1;
 }
 
-.container {
-    height: 100vh;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+    transition: all 0.3s ease;
 }
 
-.content {
+.nav-brand .brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.current-account {
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+    z-index: 101;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    animation: slideInRight 0.6s ease-out;
+}
+
+.account-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.username {
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content {
     text-align: center;
-    color: white;
-    padding: 3rem;
-    max-width: 500px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 2s ease-in-out;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.profile-container {
+    position: relative;
+    margin-bottom: 3rem;
+    display: inline-block;
 }
 
 .profile-pic {
-    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
 }
 
 .profile-pic img {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.4);
     object-fit: cover;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid transparent;
+    background: var(--gradient-primary);
+    padding: 3px;
     transition: all 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
 .profile-pic img:hover {
     transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.7);
 }
 
-.name {
-    font-size: 3rem;
-    font-weight: normal;
-    margin-bottom: 2.5rem;
-    color: #fff;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+.profile-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(45deg, transparent 30%, var(--accent-color) 70%);
+    animation: rotate 3s linear infinite;
+    opacity: 0.7;
 }
 
-.bio-text {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    color: #fff;
+.status-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: #10b981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+
+.intro-text {
+    margin-bottom: 3rem;
+}
+
+.hero-title {
+    margin-bottom: 2rem;
+}
+
+.greeting {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.name-highlight {
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.bio-container {
+    margin-bottom: 2rem;
+}
+
+.bio-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.typewriter-container {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    min-height: 1.5rem;
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 #typewriter {
@@ -95,8 +276,120 @@ body::before {
 
 .cursor {
     animation: blink 1s infinite;
-    color: #fff;
+    color: var(--accent-color);
     font-weight: bold;
+    margin-left: 2px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    font-size: 0.875rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 30px -5px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(20px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--text-muted);
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.scroll-text {
+    font-size: 0.875rem;
+    font-weight: 300;
+}
+
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-primary);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    background: var(--gradient-secondary);
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
 }
 
 @keyframes blink {
@@ -104,10 +397,10 @@ body::before {
     51%, 100% { opacity: 0; }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInUp {
     from { 
         opacity: 0; 
-        transform: translateY(30px);
+        transform: translateY(50px);
     }
     to { 
         opacity: 1; 
@@ -115,54 +408,97 @@ body::before {
     }
 }
 
-.current-account {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 12px 18px;
-    animation: fadeIn 2s ease-in-out;
+@keyframes slideInRight {
+    from { 
+        opacity: 0; 
+        transform: translateX(30px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0);
+    }
 }
 
-.account-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Courier New', monospace;
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.account-label {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    font-weight: 300;
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
-.username {
-    color: #fff;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
 }
 
-
-
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(180deg); }
+}
 
 @media (max-width: 768px) {
-    .name {
-        font-size: 2.2rem;
+    .navbar {
+        padding: 1rem;
     }
     
-    .bio-text {
-        font-size: 1.1rem;
+    .nav-menu {
+        display: none;
     }
     
-    .content {
-        margin: 1rem;
-        padding: 2rem;
+    .current-account {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .hero-section {
+        padding: 1rem;
+    }
+    
+    .name-highlight {
+        font-size: 2.5rem;
+    }
+    
+    .greeting {
+        font-size: 1.25rem;
+    }
+    
+    .bio-subtitle {
+        font-size: 1rem;
+    }
+    
+    .typewriter-container {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .profile-pic img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-highlight {
+        font-size: 2rem;
+    }
+    
+    .greeting {
+        font-size: 1rem;
     }
     
     .profile-pic img {
@@ -170,39 +506,7 @@ body::before {
         height: 80px;
     }
     
-    .current-account {
-        top: 15px;
-        right: 15px;
-        padding: 10px 15px;
-    }
-    
-    .account-label, .username {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .name {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-    }
-    
-    .bio-text {
-        font-size: 1rem;
-    }
-    
-    .profile-pic img {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .current-account {
-        top: 10px;
-        right: 10px;
-        padding: 8px 12px;
-    }
-    
-    .account-label, .username {
-        font-size: 0.75rem;
+    .floating-shape {
+        display: none;
     }
 }
